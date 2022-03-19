@@ -22,26 +22,31 @@
             <div class="container">
                 <a class="navbar-brand" href={% url 'index' %}>Index</a>
                 <a class="navbar-brand" href={% url 'plantilla' %}>Plantilla</a>
+                <a class="navbar-brand" href={% url 'crear_producto' %}>Ingresar Producto</a>
+                <a class="navbar-brand" href={% url 'lista_productos' %}>Lista Productos</a>
                 
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
+       {% block 'header_block' %}  
+       <header class="masthead">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            {% block 'header_block' %} 
-                            <h1 class="mb-5">Bienvenidos a mi blog!</h1>
-                            {% endblock 'header_block' %}
+                          {% block 'header_block_text' %} 
+                          <h1 class="mb-5">Bienvenidos a mi tienda!</h1>
+                          {% endblock 'header_block_text' %}  
+                           
+                            
                             
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-       
+       {% endblock 'header_block' %}
         {% block 'body_block' %}
         {% endblock 'body_block' %}
 
