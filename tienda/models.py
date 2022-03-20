@@ -6,11 +6,15 @@ class Vendedor(models.Model):
     apellido = models.CharField(max_length=30)
     codigoEmpleado = models.IntegerField()
     empleado = models.BooleanField()
+    def __str__(self):
+        return f'{self.nombre} {self.apellido}'
     
 class Cliente(models.Model):
     nombre = models.CharField(max_length=25)
     apellido = models.CharField(max_length=30)
     dni= models.IntegerField()
+    def __str__(self):
+        return f'{self.nombre} {self.apellido}'
     
 class Producto(models.Model):
     nombre = models.CharField(max_length=25)

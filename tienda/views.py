@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 
-from .forms import ProductoFormulario, ProductoBusqueda
-from .models import Producto
+from .forms import ProductoFormulario, ProductoBusqueda, ClienteFormulario, VendedorFormulario
+from .models import Cliente, Producto, Vendedor
 
 # Create your views here.
 
@@ -15,9 +15,37 @@ def crear_producto(request):
             producto.save()
             # return render(request, "index/plantilla.html",{})
             return redirect('index')
-        
+    
     form = ProductoFormulario()
     return render(request,'tienda/crear_producto.html', {'form': form})   
+        
+def crear_cliente(request):
+    if request.method == 'POST':
+        form = ClienteFormulario(request.POST)
+        
+        if form.is_valid():
+            data=form.cleaned_data
+            cliente = Cliente(nombre=data['nombre'], apellido=data['apellido'], dni=data['dni'])
+            cliente.save()
+            # return render(request, "index/plantilla.html",{})
+            return redirect('index')
+    
+    form = ClienteFormulario()
+    return render(request,'tienda/crear_cliente.html', {'form': form})   
+        
+def crear_vendedor(request):
+    if request.method == 'POST':
+        form = VendedorFormulario(request.POST)
+        
+        if form.is_valid():
+            data=form.cleaned_data
+            vendedor = Vendedor(nombre=data['nombre'], apellido=data['apellido'], codigoEmpleado=data['codigoEmpleado'], empleado=data['empleado'])
+            vendedor.save()
+            # return render(request, "index/plantilla.html",{})
+            return redirect('index')
+        
+    form = VendedorFormulario()
+    return render(request,'tienda/crear_vendedor.html', {'form': form})   
 
 def lista_productos(request):
     
