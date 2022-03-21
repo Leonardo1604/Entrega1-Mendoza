@@ -9,8 +9,10 @@ def index(request):
 def plantilla(request):
     
     datos ={
-        'lista': ['primero', 'segundo', 'tercero'],
-        'nombre': 'Gael',
-        'apellido': 'Fort'
+        'lista': ['Comestibles', 'Utiles', 'Variedad'],
+        'nombre': 'Tienda Juanito',
+        'apellido': 'Martinez',
+        'email': 'ldmm16@hotmail.com',
+        'numero': '968547521'
     }
     return render(request, 'index/plantilla.html', datos)

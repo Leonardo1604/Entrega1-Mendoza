@@ -1,7 +1,7 @@
 {% extends 'index/index.html' %}
 
 {% block 'header_block_text' %} 
-     <h1 class="mb-5">Hola esta es mi plantilla</h1>
+     <h1 class="mb-5">Contacto</h1>
 {% endblock 'header_block_text' %}  
 
 {% block 'body_block' %}
@@ -12,12 +12,20 @@
     {% if nombre == apellido %}
         <h3>{{apellido}}</h3>
     {% endif %}
-
+<h3>Ofrecemos:</h3>
     {% for valor in lista  %}
         <li>
             {{valor}}
         </li>
     {% endfor %}
+
+<h3>Comunicate mediante:</h3>
+        <li>
+           Correo: {{email}}
+        </li>
+        <li>
+           Número: {{numero}}
+        </li>
 </body>
 </html>
 {% endblock 'body_block' %}
